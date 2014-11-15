@@ -1,0 +1,56 @@
+<script 
+ type="text/javascript" 
+ src="//ajax.aspnetcdn.com/ajax/4.0/1/MicrosoftAjax.js">
+</script>
+<script type="text/javascript" src="_layouts/15/sp.runtime.js"></script>
+<script type="text/javascript" src="_layouts/15/sp.js"></script>
+<input type="text" name="textbox1" id="txtUpdateCar" /> 
+ </br>
+<button type="button"  onclick="UpdateCar()">Click Me to add!</button>
+
+<script type="text/javascript">
+
+
+function updateListItem(value)
+{
+var clientContext; 
+var listCreationInfo; 
+var web; 
+var list; 
+
+clientContext = SP.ClientContext.get_current(); 
+web = clientContext.get_web(); 
+
+ var oList = clientContext .get_web().get_lists().getByTitle('car');
+
+ this.oListItem = oList.getItemById(2);
+ oListItem.set_item('Title', value);
+ oListItem.update();
+
+ clientContext.load(oListItem);
+clientContext.executeQueryAsync(
+ function () { alert("Success!") },
+ function () { alert("Request failed") }
+);
+}
+function UpdateCar() {
+//Retrieve the txtCar and check if it has some text.
+var txtCar = document.getElementById("txtUpdateCar");
+if (txtCar.value == "") {
+alert("please enter a car");
+}
+else
+{
+updateListItem(txtCar.value);
+}
+return;
+}
+
+function Succeeded() {
+alert("Succeeded");
+}
+function Failed(sender,args) {
+alert("fail");
+}
+
+</script>
