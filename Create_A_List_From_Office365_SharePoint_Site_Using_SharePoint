@@ -1,0 +1,25 @@
+<script 
+ type="text/javascript" 
+ src="//ajax.aspnetcdn.com/ajax/4.0/1/MicrosoftAjax.js">
+</script>
+<script type="text/javascript" src="_layouts/15/sp.runtime.js"></script>
+<script type="text/javascript" src="_layouts/15/sp.js"></script>
+<script type="text/javascript">
+var clientContext; 
+var listCreationInfo; 
+var web; 
+var list; 
+
+clientContext = SP.ClientContext.get_current(); 
+web = clientContext.get_web(); 
+listCreationInfo = new SP.ListCreationInformation(); 
+listCreationInfo.set_title("User data"); 
+listCreationInfo.set_templateType(SP.ListTemplateType.genericList); 
+list = web.get_lists().add(listCreationInfo); 
+
+clientContext.load(list);
+clientContext.executeQueryAsync(
+ function () { alert("Success!") },
+ function () { alert("Request failed") }
+);
+</script>
