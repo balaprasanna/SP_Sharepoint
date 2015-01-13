@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="8eb5b265-ea60-4a18-bd48-1df9dc23cb42" 
+        solutionId="8eb5b265-ea60-4a18-bd48-1df9dc23cb42" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="MySharePointProject"
+        sharePointProductVersion="15.0">
+</package>
